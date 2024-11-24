@@ -1,0 +1,6 @@
+rootProject.name = 'hcr'
+include 'microservices:common',
+        'microservices:load-balancer',
+        'microservices:api-server',
+        'microservices:control-server',
+        'microservices:database-server'

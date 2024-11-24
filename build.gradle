@@ -1,0 +1,100 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+
+	group = 'com.kosta'
+	version = '0.0.1-SNAPSHOT'
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(17)
+		}
+	}
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-webflux'
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+
+}
+
+project(':microservices:common') {
+	bootJar.enabled = false
+	jar.enabled = true
+
+	dependencies {
+		implementation 'commons-io:commons-io:2.6'
+		implementation 'org.json:json:20240303'
+
+		// JAP Entity
+		implementation 'jakarta.persistence:jakarta.persistence-api'
+		// R2DBC Table
+		implementation 'org.springframework.data:spring-data-relational:3.3.3'
+	}
+}
+
+project(':microservices:load-balancer') {
+	dependencies {
+		implementation project(':microservices:common')
+	}
+
+}
+
+project(':microservices:api-server') {
+	dependencies {
+		implementation project(':microservices:common')
+		implementation 'io.projectreactor.tools:blockhound:1.0.9.RELEASE'
+	}
+
+}
+
+project(':microservices:control-server') {
+	dependencies {
+		implementation project(':microservices:common')
+		implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	}
+}
+
+project(':microservices:database-server') {
+	dependencies {
+		implementation project(':microservices:common')
+
+		// JPA JDBC 
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+		runtimeOnly 'org.postgresql:postgresql:42.7.3'
+		
+		// R2DBC랑 JPA랑 공용화 사용하려면 설정 필요
+		// 영역 설정해주기
+		// 1. EnableJpaRepositories
+		// 2. EnableR2dbcRepositories
+		// 3. Data Source 및 EntityManger 정의
+		implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+		runtimeOnly 'org.postgresql:r2dbc-postgresql'
+	}
+}

@@ -1,0 +1,378 @@
+2024-08-31T13:59:17.277+09:00  INFO 19420 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 19420 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T13:59:17.295+09:00  INFO 19420 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T13:59:20.717+09:00  INFO 19420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-08-31T13:59:20.737+09:00  INFO 19420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T13:59:20.738+09:00  INFO 19420 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T13:59:20.892+09:00  INFO 19420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T13:59:20.893+09:00  INFO 19420 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3470 ms
+2024-08-31T13:59:21.428+09:00 DEBUG 19420 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T13:59:21.434+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T13:59:21.434+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T13:59:21.437+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T13:59:21.439+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T13:59:21.440+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T13:59:21.441+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T13:59:21.443+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T13:59:21.444+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T13:59:21.447+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T13:59:21.449+09:00 DEBUG 19420 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T13:59:21.449+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T13:59:21.450+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T13:59:21.450+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T13:59:21.451+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T13:59:21.452+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T13:59:21.453+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T13:59:21.455+09:00 DEBUG 19420 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T13:59:21.455+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T13:59:21.606+09:00 DEBUG 19420 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T13:59:21.607+09:00 DEBUG 19420 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T13:59:21.665+09:00 DEBUG 19420 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T13:59:21.666+09:00 DEBUG 19420 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T13:59:21.774+09:00 DEBUG 19420 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T13:59:21.798+09:00 DEBUG 19420 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T13:59:21.822+09:00 DEBUG 19420 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T13:59:21.822+09:00 DEBUG 19420 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T13:59:21.841+09:00 DEBUG 19420 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T13:59:21.915+09:00 DEBUG 19420 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T13:59:21.916+09:00 DEBUG 19420 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T13:59:21.970+09:00 DEBUG 19420 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T13:59:21.973+09:00 DEBUG 19420 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T13:59:21.975+09:00 DEBUG 19420 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T13:59:21.976+09:00 DEBUG 19420 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T13:59:21.996+09:00 DEBUG 19420 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T13:59:21.997+09:00 DEBUG 19420 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T13:59:22.003+09:00 DEBUG 19420 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T13:59:22.019+09:00 DEBUG 19420 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T13:59:22.061+09:00 DEBUG 19420 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T13:59:22.873+09:00  INFO 19420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-08-31T13:59:22.890+09:00  INFO 19420 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 6.832 seconds (process running for 7.967)
+2024-08-31T14:00:05.830+09:00  INFO 19420 --- [http-nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:00:05.831+09:00  INFO 19420 --- [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:00:05.833+09:00  INFO 19420 --- [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-31T14:22:54.687+09:00  INFO 11536 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 11536 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:22:54.692+09:00  INFO 11536 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:22:57.828+09:00  INFO 11536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-08-31T14:22:57.851+09:00  INFO 11536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:22:57.851+09:00  INFO 11536 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:22:58.002+09:00  INFO 11536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:22:58.003+09:00  INFO 11536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3187 ms
+2024-08-31T14:22:58.507+09:00 DEBUG 11536 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:22:58.514+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:22:58.515+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:22:58.518+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:22:58.520+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:22:58.522+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:22:58.524+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:22:58.525+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:22:58.526+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:22:58.529+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:22:58.531+09:00 DEBUG 11536 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:22:58.531+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:22:58.532+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:22:58.532+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:22:58.532+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:22:58.534+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:22:58.534+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:22:58.536+09:00 DEBUG 11536 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:22:58.536+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:22:58.657+09:00 DEBUG 11536 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:22:58.658+09:00 DEBUG 11536 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:22:58.700+09:00 DEBUG 11536 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:22:58.700+09:00 DEBUG 11536 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:22:58.780+09:00 DEBUG 11536 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:22:58.808+09:00 DEBUG 11536 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:22:58.836+09:00 DEBUG 11536 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:22:58.836+09:00 DEBUG 11536 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:22:58.852+09:00 DEBUG 11536 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:22:58.906+09:00 DEBUG 11536 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:22:58.906+09:00 DEBUG 11536 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:22:58.951+09:00 DEBUG 11536 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:22:58.953+09:00 DEBUG 11536 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:22:58.953+09:00 DEBUG 11536 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:22:58.954+09:00 DEBUG 11536 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:22:58.965+09:00 DEBUG 11536 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:22:58.965+09:00 DEBUG 11536 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:22:58.968+09:00 DEBUG 11536 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:22:58.977+09:00 DEBUG 11536 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:22:59.012+09:00 DEBUG 11536 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:22:59.770+09:00  INFO 11536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-08-31T14:22:59.791+09:00  INFO 11536 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 6.032 seconds (process running for 6.791)
+2024-08-31T14:23:06.800+09:00  INFO 16320 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 16320 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:23:06.808+09:00  INFO 16320 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:23:10.047+09:00  INFO 16320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8084 (http)
+2024-08-31T14:23:10.073+09:00  INFO 16320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:23:10.074+09:00  INFO 16320 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:23:10.229+09:00  INFO 16320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:23:10.229+09:00  INFO 16320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3277 ms
+2024-08-31T14:23:10.676+09:00 DEBUG 16320 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:23:10.683+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:23:10.683+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:23:10.685+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:23:10.687+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:23:10.688+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:23:10.690+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:23:10.691+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:23:10.692+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:23:10.694+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:23:10.695+09:00 DEBUG 16320 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:23:10.696+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:23:10.696+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:23:10.696+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:23:10.697+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:23:10.698+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:23:10.698+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:23:10.700+09:00 DEBUG 16320 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:23:10.700+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:23:10.815+09:00 DEBUG 16320 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:23:10.816+09:00 DEBUG 16320 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:23:10.856+09:00 DEBUG 16320 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:23:10.856+09:00 DEBUG 16320 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:23:10.946+09:00 DEBUG 16320 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:23:10.966+09:00 DEBUG 16320 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:23:10.980+09:00 DEBUG 16320 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:23:10.981+09:00 DEBUG 16320 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:23:10.992+09:00 DEBUG 16320 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:23:11.038+09:00 DEBUG 16320 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:23:11.038+09:00 DEBUG 16320 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:23:11.080+09:00 DEBUG 16320 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:23:11.081+09:00 DEBUG 16320 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:23:11.082+09:00 DEBUG 16320 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:23:11.083+09:00 DEBUG 16320 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:23:11.096+09:00 DEBUG 16320 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:23:11.096+09:00 DEBUG 16320 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:23:11.100+09:00 DEBUG 16320 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:23:11.110+09:00 DEBUG 16320 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:23:11.145+09:00 DEBUG 16320 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:23:11.936+09:00  INFO 16320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8084 (http) with context path '/'
+2024-08-31T14:23:11.961+09:00  INFO 16320 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 6.594 seconds (process running for 7.509)
+2024-08-31T14:23:17.032+09:00  INFO 11536 --- [http-nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:23:17.033+09:00  INFO 11536 --- [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:23:17.034+09:00  INFO 11536 --- [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-31T14:24:18.048+09:00  INFO 16320 --- [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:24:18.050+09:00  INFO 16320 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:24:18.052+09:00  INFO 16320 --- [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-31T14:38:04.444+09:00  INFO 2128 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 2128 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:38:04.452+09:00  INFO 2128 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:38:07.046+09:00  INFO 2128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-08-31T14:38:07.066+09:00  INFO 2128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:38:07.067+09:00  INFO 2128 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:38:07.233+09:00  INFO 2128 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:38:07.234+09:00  INFO 2128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2635 ms
+2024-08-31T14:38:07.752+09:00 DEBUG 2128 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:38:07.759+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:38:07.760+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:38:07.764+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:38:07.767+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:38:07.768+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:38:07.769+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:38:07.771+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:38:07.773+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:38:07.776+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:38:07.778+09:00 DEBUG 2128 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:38:07.778+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:38:07.779+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:38:07.779+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:38:07.780+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:38:07.782+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:38:07.782+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:38:07.784+09:00 DEBUG 2128 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:38:07.785+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:38:07.930+09:00 DEBUG 2128 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:38:07.930+09:00 DEBUG 2128 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:38:07.973+09:00 DEBUG 2128 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:38:07.973+09:00 DEBUG 2128 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:38:08.040+09:00 DEBUG 2128 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:38:08.057+09:00 DEBUG 2128 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:38:08.073+09:00 DEBUG 2128 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:38:08.073+09:00 DEBUG 2128 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:38:08.088+09:00 DEBUG 2128 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:38:08.142+09:00 DEBUG 2128 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:38:08.142+09:00 DEBUG 2128 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:38:08.174+09:00 DEBUG 2128 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:38:08.189+09:00 DEBUG 2128 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:38:08.189+09:00 DEBUG 2128 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:38:08.189+09:00 DEBUG 2128 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:38:08.205+09:00 DEBUG 2128 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:38:08.205+09:00 DEBUG 2128 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:38:08.205+09:00 DEBUG 2128 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:38:08.205+09:00 DEBUG 2128 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:38:08.252+09:00 DEBUG 2128 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:38:08.971+09:00  INFO 2128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-08-31T14:38:08.987+09:00  INFO 2128 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 5.954 seconds (process running for 6.97)
+2024-08-31T14:38:17.514+09:00  INFO 14652 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 14652 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:38:17.520+09:00  INFO 14652 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:38:20.217+09:00  INFO 14652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8084 (http)
+2024-08-31T14:38:20.238+09:00  INFO 14652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:38:20.238+09:00  INFO 14652 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:38:20.404+09:00  INFO 14652 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:38:20.405+09:00  INFO 14652 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2763 ms
+2024-08-31T14:38:20.825+09:00 DEBUG 14652 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:38:20.841+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:38:20.857+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:38:21.045+09:00 DEBUG 14652 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:38:21.045+09:00 DEBUG 14652 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:38:21.092+09:00 DEBUG 14652 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:38:21.092+09:00 DEBUG 14652 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:38:21.170+09:00 DEBUG 14652 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:38:21.185+09:00 DEBUG 14652 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:38:21.201+09:00 DEBUG 14652 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:38:21.201+09:00 DEBUG 14652 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:38:21.217+09:00 DEBUG 14652 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:38:21.273+09:00 DEBUG 14652 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:38:21.273+09:00 DEBUG 14652 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:38:21.304+09:00 DEBUG 14652 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:38:21.320+09:00 DEBUG 14652 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:38:21.320+09:00 DEBUG 14652 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:38:21.320+09:00 DEBUG 14652 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:38:21.335+09:00 DEBUG 14652 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:38:21.335+09:00 DEBUG 14652 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:38:21.335+09:00 DEBUG 14652 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:38:21.335+09:00 DEBUG 14652 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:38:21.382+09:00 DEBUG 14652 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:38:22.175+09:00  INFO 14652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8084 (http) with context path '/'
+2024-08-31T14:38:22.189+09:00  INFO 14652 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 6.062 seconds (process running for 7.277)
+2024-08-31T14:38:26.411+09:00  INFO 2128 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:38:26.412+09:00  INFO 2128 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:38:26.414+09:00  INFO 2128 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-31T14:38:26.528+09:00  INFO 2128 --- [http-nio-8083-exec-1] c.k.c.core.module.apichecker.APIChecker  : API CHECKER INIT
+2024-08-31T14:38:26.763+09:00  INFO 14652 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:38:26.764+09:00  INFO 14652 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:38:26.768+09:00  INFO 14652 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-31T14:38:43.212+09:00  INFO 2128 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Mapping API :MappingInfoAPI(method=POST, path=/user/create, name=createUser, returnType=com.kosta.common.spring.data.dto.UserDTO, params=[com.kosta.common.spring.data.dto.UserDTO, jakarta.servlet.http.HttpServletRequest])
+2024-08-31T14:38:43.213+09:00  INFO 2128 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Request :com.kosta.common.core.module.apichecker.RequestBodyWrapper@3f0c4ae8
+2024-08-31T14:38:43.213+09:00  INFO 2128 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : API Return Type :com.kosta.common.spring.data.dto.UserDTO
+2024-08-31T14:38:43.213+09:00  INFO 2128 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Body Object Type :com.kosta.common.spring.data.dto.UserDTO
+2024-08-31T14:38:43.213+09:00  INFO 2128 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Body Object :UserDTO(id=0, name=test-name)
+2024-08-31T14:39:13.679+09:00  INFO 1708 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 1708 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:39:13.686+09:00  INFO 1708 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:39:16.565+09:00  INFO 1708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-08-31T14:39:16.580+09:00  INFO 1708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:39:16.596+09:00  INFO 1708 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:39:16.736+09:00  INFO 1708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:39:16.736+09:00  INFO 1708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2947 ms
+2024-08-31T14:39:17.306+09:00 DEBUG 1708 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:39:17.306+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:39:17.306+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:39:17.306+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:39:17.322+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:39:17.509+09:00 DEBUG 1708 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:39:17.509+09:00 DEBUG 1708 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:39:17.589+09:00 DEBUG 1708 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:39:17.591+09:00 DEBUG 1708 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:39:17.690+09:00 DEBUG 1708 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:39:17.708+09:00 DEBUG 1708 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:39:17.727+09:00 DEBUG 1708 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:39:17.727+09:00 DEBUG 1708 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:39:17.740+09:00 DEBUG 1708 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:39:17.792+09:00 DEBUG 1708 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:39:17.792+09:00 DEBUG 1708 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:39:17.838+09:00 DEBUG 1708 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:39:17.839+09:00 DEBUG 1708 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:39:17.841+09:00 DEBUG 1708 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:39:17.841+09:00 DEBUG 1708 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:39:17.859+09:00 DEBUG 1708 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:39:17.860+09:00 DEBUG 1708 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:39:17.866+09:00 DEBUG 1708 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:39:17.882+09:00 DEBUG 1708 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:39:17.919+09:00 DEBUG 1708 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:39:18.576+09:00  INFO 1708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-08-31T14:39:18.590+09:00  INFO 1708 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 6.15 seconds (process running for 7.211)
+2024-08-31T14:39:25.293+09:00  INFO 1708 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-31T14:39:25.294+09:00  INFO 1708 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-31T14:39:25.297+09:00  INFO 1708 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-08-31T14:39:25.388+09:00  INFO 1708 --- [http-nio-8083-exec-1] c.k.c.core.module.apichecker.APIChecker  : API CHECKER INIT
+2024-08-31T14:39:51.078+09:00  INFO 1708 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Mapping API :MappingInfoAPI(method=POST, path=/user/create, name=createUser, returnType=com.kosta.common.spring.data.dto.UserDTO, params=[com.kosta.common.spring.data.dto.UserDTO, jakarta.servlet.http.HttpServletRequest])
+2024-08-31T14:39:51.078+09:00  INFO 1708 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Request :com.kosta.common.core.module.apichecker.RequestBodyWrapper@3f0c4ae8
+2024-08-31T14:39:51.078+09:00  INFO 1708 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : API Return Type :com.kosta.common.spring.data.dto.UserDTO
+2024-08-31T14:39:51.079+09:00  INFO 1708 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Body Object Type :com.kosta.common.spring.data.dto.UserDTO
+2024-08-31T14:39:51.079+09:00  INFO 1708 --- [http-nio-8083-exec-5] c.k.c.core.module.apichecker.APIChecker  : Body Object :UserDTO(id=0, name=test-name)
+2024-08-31T14:51:07.634+09:00  INFO 9312 --- [main] c.kosta.apiserver.ApiServerApplication   : Starting ApiServerApplication using Java 17.0.10 with PID 9312 (C:\IT\workspace_java\hcr\microservices\api-server\out\production\classes started by pc in C:\IT\workspace_java\hcr)
+2024-08-31T14:51:07.639+09:00  INFO 9312 --- [main] c.kosta.apiserver.ApiServerApplication   : The following 1 profile is active: "sync"
+2024-08-31T14:51:10.395+09:00  INFO 9312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-08-31T14:51:10.411+09:00  INFO 9312 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-31T14:51:10.411+09:00  INFO 9312 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-31T14:51:10.567+09:00  INFO 9312 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-31T14:51:10.567+09:00  INFO 9312 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2823 ms
+2024-08-31T14:51:11.109+09:00 DEBUG 9312 --- [main] i.n.u.i.logging.InternalLoggerFactory    : Using SLF4J as the default logging framework
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : -Dio.netty.noUnsafe: false
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : Java version: 17
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.theUnsafe: available
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe base methods: all available
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : sun.misc.Unsafe.storeFence: available
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Buffer.address: available
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2024-08-31T14:51:11.125+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.Bits.unaligned: available, true
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @3e77a1ed
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.n.util.internal.PlatformDependent0     : java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : sun.misc.Unsafe: available
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.tmpdir: C:\Users\pc\AppData\Local\Temp (java.io.tmpdir)
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : Platform: Windows
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.maxDirectMemory: -1 bytes
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] io.netty.util.internal.CleanerJava9      : java.nio.ByteBuffer.cleaner(): available
+2024-08-31T14:51:11.141+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : -Dio.netty.noPreferDirect: false
+2024-08-31T14:51:11.266+09:00 DEBUG 9312 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2024-08-31T14:51:11.266+09:00 DEBUG 9312 --- [main] i.n.u.internal.InternalThreadLocalMap    : -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2024-08-31T14:51:11.297+09:00 DEBUG 9312 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.level: simple
+2024-08-31T14:51:11.297+09:00 DEBUG 9312 --- [main] io.netty.util.ResourceLeakDetector       : -Dio.netty.leakDetection.targetRecords: 4
+2024-08-31T14:51:11.375+09:00 DEBUG 9312 --- [main] i.n.channel.MultithreadEventLoopGroup    : -Dio.netty.eventLoopThreads: 16
+2024-08-31T14:51:11.391+09:00 DEBUG 9312 --- [main] i.n.util.concurrent.GlobalEventExecutor  : -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2024-08-31T14:51:11.422+09:00 DEBUG 9312 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.noKeySetOptimization: false
+2024-08-31T14:51:11.422+09:00 DEBUG 9312 --- [main] io.netty.channel.nio.NioEventLoop        : -Dio.netty.selectorAutoRebuildThreshold: 512
+2024-08-31T14:51:11.437+09:00 DEBUG 9312 --- [main] i.netty.util.internal.PlatformDependent  : org.jctools-core.MpscChunkedArrayQueue: available
+2024-08-31T14:51:11.493+09:00 DEBUG 9312 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv4Stack: false
+2024-08-31T14:51:11.494+09:00 DEBUG 9312 --- [main] io.netty.util.NetUtil                    : -Djava.net.preferIPv6Addresses: false
+2024-08-31T14:51:11.544+09:00 DEBUG 9312 --- [main] io.netty.util.NetUtilInitializations     : Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2024-08-31T14:51:11.545+09:00 DEBUG 9312 --- [main] io.netty.util.NetUtil                    : Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2024-08-31T14:51:11.547+09:00 DEBUG 9312 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default ResolvedAddressTypes: IPV4_ONLY
+2024-08-31T14:51:11.547+09:00 DEBUG 9312 --- [main] io.netty.resolver.dns.DnsNameResolver    : Localhost address: localhost/127.0.0.1
+2024-08-31T14:51:11.560+09:00 DEBUG 9312 --- [main] io.netty.resolver.dns.DnsNameResolver    : Windows hostname: DESKTOP-K2U9366
+2024-08-31T14:51:11.560+09:00 DEBUG 9312 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default search domains: []
+2024-08-31T14:51:11.563+09:00 DEBUG 9312 --- [main] io.netty.resolver.dns.DnsNameResolver    : Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+2024-08-31T14:51:11.571+09:00 DEBUG 9312 --- [main] i.n.r.DefaultHostsFileEntriesResolver    : -Dio.netty.hostsFileRefreshInterval: 0
+2024-08-31T14:51:11.612+09:00 DEBUG 9312 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/203.248.252.2:53, /164.124.101.2:53] (sun.net.dns.ResolverConfiguration)
+2024-08-31T14:51:11.743+09:00  INFO 9312 --- [main] c.k.c.c.m.a.WebClientConnector           : WEB Client CONNECTING :: 
+2024-08-31T14:51:11.746+09:00  INFO 9312 --- [main] com.kosta.common.AppConfig               : ARGS ticket
+2024-08-31T14:51:11.746+09:00  INFO 9312 --- [main] com.kosta.common.AppConfig               : ID GENERATOR com.kosta.common.core.module.generator.TicketServerGenerator@64bebd55
+2024-08-31T14:51:12.464+09:00  INFO 9312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-08-31T14:51:12.484+09:00  INFO 9312 --- [main] c.kosta.apiserver.ApiServerApplication   : Started ApiServerApplication in 5.994 seconds (process running for 7.089)
+2024-08-31T14:51:12.492+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : OPTION server.type :: api-server,my-api-serverA,2,0
+2024-08-31T14:51:12.494+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : OPTION loadbalancing.type :: random,layer7
+2024-08-31T14:51:12.494+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : OPTION server.port :: 8083
+2024-08-31T14:51:12.495+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : VALID ARGS
+2024-08-31T14:51:12.496+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : LoadBalancingContext(balancingType=random, statusCheckLayer=layer7)
+2024-08-31T14:51:12.497+09:00  INFO 9312 --- [main] c.k.common.CommandLineAppStartupRunner   : ServerTypeContext(serverType=api-server, serverLabel=my-api-serverA, serverPort=8083, serverAddress=192.168.219.97, gridX=2, gridY=0)
+2024-08-31T14:51:12.498+09:00  INFO 9312 --- [main] c.k.c.core.module.metrics.MetricStream   : --- METRIC
+2024-08-31T14:51:12.498+09:00  INFO 9312 --- [main] c.k.c.core.module.metrics.MetricStream   : SERVER : 172.30.1.18
+2024-08-31T14:51:12.498+09:00  INFO 9312 --- [main] c.k.c.core.module.metrics.MetricStream   : PORT : 9999
