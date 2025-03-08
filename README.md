@@ -413,16 +413,16 @@ Swing의 Repaint를 통해 화면을 그려내는 클래스 입니다.
     종이 이미지 리소스가 백그라운드에 그려집니다.
     ```java
     public class Paper extends Actor {
-
-    public Paper() {
-        attachComp(Position.class);
-        attachComp(Graphic.class)
-                .setLayer(BoardConfig.ELayer.BACK)
-                .setImage("paper.png")
-                .setSize(400, 520);
-      }
-  }
-  ```
+  
+      public Paper() {
+          attachComp(Position.class);
+          attachComp(Graphic.class)
+                  .setLayer(BoardConfig.ELayer.BACK)
+                  .setImage("paper.png")
+                  .setSize(400, 520);
+        }
+    }
+    ```
 
 #### Comp
 - Actor에 부착되어 확장 기능을 담당하는 클래스 입니다.
