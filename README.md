@@ -216,6 +216,57 @@ A[Gate] -->B[APICheckerInterceptor]
 
 ## 📝 플로우 & 메트릭스 다이어그램
 ### 프로세스 플로우
+- 프로세스가 진행됩니다.
+- 추상회된 Rule을 상속받아 코드 덩어리 구현합니다.
+- 원하는 위치에 Rule을 집어넣거나, 프로세스 진행 방향을 가로채 제어 변경하기도 합니다.
+- 커서를 통해 진행도를 롤백하거나, 다시 진행할 수 있습니다.
+
+```mermaid 
+flowchart LR
+A[Process] --> |Run|B[End]
+A1[Process] --> |Run|RA1[Rule A] -->
+RB1[Rule B] -->
+RC1[Rule C] --> RA1
+RC1[Rule C] --> B1[End]
+
+A2[Process] --> |Run|RA2[End]
+RA2[Rule A] -->|"Run(NextCursor)"| RB2[Rule B] --> |"RollBack(PrevCursor)"|RA2
+```
+
+### 메트릭스 플로우
+- 초기화가 진행되며 FlowClient를 통해 UniqueDynamicFlowContext의 메타데이터 메시지를 파악합니다.
+- InsertComputer시 서버가 등장합니다.
+- InsertTraffic시 컴퓨터와 컴퓨터 간의 트래픽 선을 연결합니다.
+
+### 다이스 플로우
+- 초기화가 진행되며,
+- 액터들을 월드에 소환 합니다.
+- 유저를 활성화 하고
+- 활성화된 유저 기반 주사위를 던지며,
+- 유저를 이동 시킵니다.
+- 만약 골에 도착했다면 REnd Rule로 이동 하고 그렇지 않다면, RUserActive Rule로 이하 반복 합니다
+
+```mermaid 
+flowchart LR
+S["프로세스 시작
+(FlowStart)"]
+A["초기화
+(RConstructor)"] --> 
+B["액터들 소환
+(RSpawnActors)"] --> 
+C["유저 활성화
+(RUserActive)"] -->
+D["주사위 던짐
+(RThrowDice)"] -->
+E["값 만큼 이동
+(RMoveFigure)"] -->
+C
+E -->|조건:골에 도착| F["프로세스 종료\n(FlowEnd)"] 
+F[REnd]
+ES["프로세스 종료
+(FlowEnd)"]
+```
+
 
 ## 📊 공통 모듈 프로젝트 회고
 ### 결과
