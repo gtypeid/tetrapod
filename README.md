@@ -64,7 +64,7 @@ Http 요청, 응답을 추적 시각화할 수 있는 프로그램으로서 확�
 
 ## 🔍 공통모듈 살펴보기
 ### 공통모듈 시연
-<img src="https://gtypeid.github.io/resource/path/folio/metrics-0.gif" width="1000" alt="프로젝트 로고"><br><br>
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-0.gif" width="900" alt="프로젝트 로고"><br><br>
 - KR API, DB서버 추가후 서로 통신하는 모습입니다.
 - 이후 KR DB서버를 추가 연동한 후 통신
 - 글로벌 서버 및 EN API, DB서버를 추가
@@ -72,12 +72,12 @@ Http 요청, 응답을 추적 시각화할 수 있는 프로그램으로서 확�
 로컬라이징을 통해 어댑터로 분기하는 모습입니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/metrics-1.gif" width="1000" alt="프로젝트 로고"><br><br>
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-1.gif" width="900" alt="프로젝트 로고"><br><br>
 - 포스트맨으로 요청하여 어댑터 분기 및
 - KR DB 서버로 밸런싱되는 모습입니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/metrics-2.gif" width="1000" alt="프로젝트 로고"><br><br>
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-2.gif" width="900" alt="프로젝트 로고"><br><br>
 - 가상 커서를 통해 프로세스를 되감거나 복구합니다.
 Undo, redo기능을 활용하여 요청 응답을 추적합니다.
 Metrics(Flow 프로젝트 베이스)의 기능.
@@ -92,13 +92,13 @@ Metrics(Flow 프로젝트 베이스)의 기능.
 <br><br>
 
 ### 메트릭스 & 플로우 시연
-<img src="https://gtypeid.github.io/resource/path/folio/flow-0.gif" width="1000" alt="프로젝트 로고"><br><br>
+<img src="https://gtypeid.github.io/resource/path/folio/flow-0.gif" width="700" alt="프로젝트 로고"><br><br>
 - 추상화된 룰이라는 블럭 코드들이 실행되는 모습입니다.
 유저의 활성화, 주사위 굴림, 이동, 종료등의 프로세스가
 시뮬레이션 되는 모습입니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/flow-1.gif" width="1000" alt="프로젝트 로고"><br><br>
+<img src="https://gtypeid.github.io/resource/path/folio/flow-1.gif" width="700" alt="프로젝트 로고"><br><br>
 - 호스트 기준 다수의 클라이언트가
 동기화되는 모습입니다.
 Winter 서버를 이용하여 상태를 동기화 합니다.
