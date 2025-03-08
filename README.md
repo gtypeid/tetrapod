@@ -18,6 +18,12 @@ Spring 공부 중 추상적 설계에 대해 알게 되었고,
 멀티 플레이어가 주사위를 던져 목적지에 도달하는 동기화 시뮬레이션 혹은
 Http 요청, 응답을 추적 시각화할 수 있는 프로그램으로서 확장해보았습니다.
 
+### Flow
+플로우라는 구조를 통해 로직이 메인 루프가 아닌, 사용자가 확장한
+코드 덩어리 (RULE) 를 원하는 순서에 집어넣어 조작합니다.
+프로세스 플로우 기반, 가상 커서가 옮겨 다니며
+해당 위치의 프로세스 롤백 혹은 복원 처리
+
 ## 🧩 프로젝트 초기 의도 및 방향변경
 ### CommonModule
 - 초기에는 대용량 분산 처리라는 키워드를 기반으로 시도된 프로젝트였습니다.
@@ -56,108 +62,72 @@ Http 요청, 응답을 추적 시각화할 수 있는 프로그램으로서 확�
 <br><br>
 <img width="1117" alt="스크린샷 2025-03-08 오후 1 09 41" src="https://github.com/user-attachments/assets/b200075f-517b-4c9f-a274-7914d6bc1136" />
 
-
-## 🚀 슬레이트를 통해 제작한 뷰
-
-### Board (게시판) 서비스
-<img src="https://github.com/user-attachments/assets/6a209c0f-1c73-4782-848d-4a3789bb413b" width="500" alt="프로젝트 로고"><br><br>
-- 초기에는 Google Sheet의 엑셀을 활용하여 게시판 CRUD 기능을
-대신했습니다 . App Script의 doPost 메서드를 사용하여 셀에 값을
-입력하거나 , URL을 통해 엑셀 시트의 데이터를 .CSV 형식으로 가져와
-게시글을 생성했습니다. 이후에는 `Winter` 서버를 사용하여 오라클
-데이터베이스와 연동하였습니다.
+## 🔍 공통모듈 살펴보기
+### 공통모듈 시연
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-0.gif" width="1000" alt="프로젝트 로고"><br><br>
+- KR API, DB서버 추가후 서로 통신하는 모습입니다.
+- 이후 KR DB서버를 추가 연동한 후 통신
+- 글로벌 서버 및 EN API, DB서버를 추가
+- 어댑터를 통해 HTTP 헤더를 비교
+로컬라이징을 통해 어댑터로 분기하는 모습입니다.
 <br><br>
 
-### BM (구매자, 판매자, 오더) 서비스
-<img src="https://github.com/user-attachments/assets/1d2abf0d-b06c-42d9-86bc-414c68837229" width="500" alt="프로젝트 로고"><br><br>
-- 구매자, 판매자, 오더 서비스를 각각 독립적으로 구현하였습니다. 구매자는
-판매자 서버의 API를 통해 스토어와 스토어 아이템 정보를 획득하며, 판매자
-서버는 스토어와 아이템을 등록 및 관리하고, 구매 내역을 확인합니다. 오더
-서비스는 발생한 오더 내역에 대해 자세한 정보를 제공합니다.
-`Winter` 서버를 사용하였습니다.
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-1.gif" width="1000" alt="프로젝트 로고"><br><br>
+- 포스트맨으로 요청하여 어댑터 분기 및
+- KR DB 서버로 밸런싱되는 모습입니다.
 <br><br>
 
-### Thomas Friends (토마스 프렌즈)
-<img src="https://github.com/user-attachments/assets/79878957-86de-4c0a-9b94-85eb6861c9c7" width="500" alt="프로젝트 로고"><br><br>
-- Common Module 프로젝트 중 제작했던 프론트 뷰 입니다.
-학원 내 활용할 컴퓨터 자원이 많았기에, 클라우드 환경이라 간주 할 수 있는
-프로젝트 고려하였고 , 중앙에서 다수의 컴퓨터 컨트롤 하기 위한 환경
-구축시도를 해보았습니다.
-초기에는 TCP Layer 4 계층 통신을 사용하려 했으나, 최종적으로 Layer 7 계층의
-WebSocket을 활용하기로 결정했습니다. 프론트 뷰는 해당 컴퓨터의 서버를
-원격으로 작동시킬 수 있는 웹 소켓 서비스를 제공합니다.
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-2.gif" width="1000" alt="프로젝트 로고"><br><br>
+- 가상 커서를 통해 프로세스를 되감거나 복구합니다.
+Undo, redo기능을 활용하여 요청 응답을 추적합니다.
+Metrics(Flow 프로젝트 베이스)의 기능.
 <br><br>
 
-### Folio (포트폴리오 사이트)
-<img src="https://github.com/user-attachments/assets/b3babdef-0bdd-4610-849c-7d70d4b4cacd" width="500" alt="프로젝트 로고"><br><br>
-- 커리큘럼 과정 중 작업한 프로젝트들의 상세 정보를
-게시한 곳입니다.
-각 프로젝트 소개, 이미지, 설명, 커리큘럼 발표 PPT,
-프로세스 플로우, 클래스 다이어그램 , 핵심 클래스 코드
-등을 포함한 다양한 설명을 포함합니다.
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-3.png" width="500" alt="프로젝트 로고"><br><br>
+- 어댑터를 통해 HTTP헤더를 비교하여, KR, EN이 분기되는 모습입니다.
 <br><br>
 
-## 🔍 슬레이트 살펴보기
-### Slate 시연
-<img src="https://gtypeid.github.io/resource/path/folio/board-0.gif" width="500" alt="프로젝트 로고"><br><br>
-- 로그인 및 게시판 상세보기, 코멘트 작성
-RestBinder를 통해 스크롤시 Winter API를 요청하여
-게시글을 동적으로 생성하는 모습입니다.
+<img src="https://gtypeid.github.io/resource/path/folio/metrics-4.png" width="500" alt="프로젝트 로고"><br><br>
+- KR DB서버가 런타임 중 확장, 연결되는 모습입니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/board-2.png" width="500" alt="프로젝트 로고"><br><br>
-- 회원가입 및 로그인을 통한
-Winter 서버로부터 받은 응답 입니다.
+### 메트릭스 & 플로우 시연
+<img src="https://gtypeid.github.io/resource/path/folio/flow-0.gif" width="1000" alt="프로젝트 로고"><br><br>
+- 추상화된 룰이라는 블럭 코드들이 실행되는 모습입니다.
+유저의 활성화, 주사위 굴림, 이동, 종료등의 프로세스가
+시뮬레이션 되는 모습입니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/board-3.png" width="500" alt="프로젝트 로고"><br><br>
-- 게시글 및 파일을 업로드 합니다.
-파일을 Blob화 하여 DB에 저장합니다
-Winter 서버로부터 받은 응답 입니다.
+<img src="https://gtypeid.github.io/resource/path/folio/flow-1.gif" width="1000" alt="프로젝트 로고"><br><br>
+- 호스트 기준 다수의 클라이언트가
+동기화되는 모습입니다.
+Winter 서버를 이용하여 상태를 동기화 합니다.
 <br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/board-6.png" width="500" alt="프로젝트 로고"><br><br>
-- 게시글 위젯입니다. HTML, CSS, JS
-이하 셋 리소스를 묶어 하나로 랜더링합니다.
-<br><br>
+## 🏗️ 플로우 구현 컨텐츠
 
-### BM 시연
-<img src="https://gtypeid.github.io/resource/path/folio/bm-0.gif" width="300" alt="프로젝트 로고"><br><br>
-- 구매자 서비스 입니다. 인트로 및 로그인을 이후
-스토어 카테고리를 Winter 서버에 요청 합니다.
-스토어로 등록된 판매자, 메뉴를 구매하는 모습입니다.
-<br><br>
+### Metrics
+<img src="https://github.com/user-attachments/assets/8ccfd9e0-5f66-472e-b50b-945909daba10" width="300" alt="프로젝트 로고"><br><br>
+<img src="https://github.com/user-attachments/assets/9eacc329-06ca-4fcb-bb1d-18e489ef1e06" width="300" alt="프로젝트 로고"><br><br>
+- Common Module 프로젝트 중 확장한 Metrics입니다.
+서비스 환경 내에서 발생하는 클라이언트 및, 런타임 중 활성화 되는 서버 그리고
+각 서비스간의 HTTP 통신의 요청 과 응답을 추적하여 화면에 그려냅니다.
 
-<img src="https://gtypeid.github.io/resource/path/folio/bm-1.png" width="500" alt="프로젝트 로고"><br><br>
-- 구매자, 판매자, 오더, 각각의 서비스로 존재하는 모습입니다.
-<br><br>
+### Dice
+<img src="https://github.com/user-attachments/assets/a15902ab-eb3b-4b42-ae73-7be2dfd7403d" width="300" alt="프로젝트 로고"><br><br>
+<img src="https://github.com/user-attachments/assets/23a6b647-be63-46ec-a288-944785a93c4e" width="300" alt="프로젝트 로고"><br><br>
+<img src="https://github.com/user-attachments/assets/2898a614-ce74-4d61-ac34-fb06c460d281" width="300" alt="프로젝트 로고"><br><br>
 
-<img src="https://gtypeid.github.io/resource/path/folio/bm-2.png" width="300" alt="프로젝트 로고"><br><br>
-- 로그인 화면, 로그인 위젯 입니다.
-<br><br>
+- 4개의 플레이어가 주사위를 돌려 목표에 도달하는 프로세스를 가진 FLOW입니다.
+또한 Winter 서버를 사용하여 동기화를 구현해보았습니다.
+1. a. [ 다음 사용자 활성화 ] > b. [ 주사위 던짐 ] > c. [ 사용자 이동 ] > <br>
+d. [ 골에 도착했는지 체크 : 아니라면 ] > f. [ a. 로 다시 이동 ] <br>
+d. [ 골에 도착했는지 체크 : 적합하다면 ] > g. [ 프로그램 종료 ] <br>
+같은 룰 (코드 덩어리 ) 을 정의하고, 프로세스를 조작하여 시뮬레이션을 진행 합니다.
 
-<img src="https://gtypeid.github.io/resource/path/folio/bm-3.png" width="500" alt="프로젝트 로고"><br><br>
-- 카테고리 선택 및 스토어 리스트를
-판매자 서버로부터 응답받은 모습입니다.
-<br><br>
-
-## 🏗️ 슬레이트 구현 위젯
-
-<img src="https://github.com/user-attachments/assets/5838ef0b-3646-47fd-8a32-f7a6f9ae1d60" width="200" alt="프로젝트 로고"><br>
-- Board ( 게시판 ) : 7개 위젯
-<br><br>
-
-<img src="https://github.com/user-attachments/assets/7f5d84d2-c7b6-4f3f-aa14-5fa8bf1b70c3" width="200" alt="프로젝트 로고"><br>
-- BM ( 구매자, 판매자, 오더 ) : 17개 위젯
-<br><br>
-
-<img src="https://github.com/user-attachments/assets/e449c2c7-84c4-47ad-864d-1677c1a40d7b" width="200" alt="프로젝트 로고"><br>
-- Thomas ( 토마스 ) : 11개 위젯
-<br><br>
-
-<img src="https://github.com/user-attachments/assets/f5520270-9263-4829-9438-0f528d71a6fc" width="200" alt="프로젝트 로고"><br>
-- Folio ( 포트폴리오 사이트 ) : 12개 위젯
-<br><br>
+2. 만약 기획 의도가 [ 주사위를 던지고 이동하기 전에 더블 주사위를 체크해라 ]로 변경 되어도 <br>
+b. [ 주사위 던짐 ] > b2. [ 더블 주사위 체크 ] > c. [ 사용자 이동 ] <br>
+더블 주사위 체크 룰을 생성하고, 프로세스를 삽입함으로써 손쉽게 구조를 조작할 수 있습니다.
 
 ## 🔍 윈터 살펴보기
 ### 윈터
