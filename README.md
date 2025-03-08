@@ -267,6 +267,361 @@ ES["프로세스 종료
 (FlowEnd)"]
 ```
 
+### 클래스 구조
+
+```mermaid 
+classDiagram
+class Board {
+    +Flow flow
+    +ViewFrame viewFrame
+    +Store store
+    +Config config
+}
+
+class Flow {
+    +FlowConnector flowConnector
+    +flowStart()    
+    +changeState()
+    +sequenceProgressFlow()
+}
+
+class FlowConnector {
+    +FlowConnector flowConnector
+    +insertFlow()
+}
+
+class ViewFrame {
+    +Renderer renderer
+    +Slider Slider
+
+}
+
+class Renderer{
+    +render()
+    +paintComponent(Graphics)
+}
+
+class Store{
+    +Map actors
+}
+
+class Actor {
+    +Comp comps
+    +attachComp()
+    +getComp()
+    +destroy()
+}
+
+class Comp{
+    +Actor parent
+}
+
+class Graphic{
+    +ImageIcon imageIcon
+    +boolean isVisible
+}
+
+class Position {
+    +int x
+    +int y
+}
+
+class FlowClient{
+    +Socket socket
+    +insert(DynamicFlowContext)
+    +send()
+    +metaData()
+}
+
+class FlowServer{
+    +int serverPort
+    +ServerSocket serverSocket
+    +msgHandle()
+    +extractMetaDataValue()
+}
+
+
+Actor --> DiceActors
+Actor --> DynamicFlowActor
+DynamicFlowActor --> MetricsActros
+
+Comp --> Graphic
+Comp --> Position
+
+Thread --> FlowClient
+Thread --> FlowServer
+
+Board  --> Flow : references
+Board  --> ViewFrame : references
+Board  --> Store : references
+
+Store --> Actor : references
+
+Actor --> Comp : references
+
+ViewFrame  --> Renderer : references
+
+Flow  --> FlowConnector : references
+FlowConnector  <--> FlowServer : references                
+```
+
+#### ViewFrame
+- JavaSwing JFrame을 상속받았으며 프레임을 담당하며,
+Renderer, Slider, ScrollBox등의 클래스를 관리하는 매니저 클래스 입니다.
+
+#### Renderer
+- 스토어의 Actor들을 순회하며 대상의 위치 및 그래픽 리소스를,
+Swing의 Repaint를 통해 화면을 그려내는 클래스 입니다.
+  - actorDraw
+  - 해당 Actor의 Position 및 Graphic 컴포넌트를 통해
+    객체의 위치 기반 피봇 및 정의 등을 기준으로 다수의 리소스를 그려냅니다.
+    ```java
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(!isRender) return;
+  
+        List actors = store.getActors();
+        for(Actor it : actors){
+            actorDraw(it, g);
+        }
+        .
+        .
+        
+    }
+  
+    private void actorDraw(Actor actor, Graphics g){
+        Position pos = actor.getComp("Position");
+        ArrayList gps = actor.getComps("Graphic");
+        if(pos == null || gps == null) return;
+  
+        gps.forEach( gp ->{
+            if(gp.isVisible()){
+                int[] sXY = getActorRenderScreenXY(pos, gp);
+                resourceDraw(g, gp, sXY[0], sXY[1]);
+            }
+        });
+    }
+    ```
+  
+#### Actor
+- 월드상 표현되는 객체 입니다. 컴포넌트를 부착하는 확장성을 지닙니다.
+  - Actor::Paper(DiceActor)
+  - Actor를 확장한 PaperActor입니다.
+    Position, Graphic 컴포넌트를 추가 하여,
+    월드 상에 랜더링 될 위치 및 리소스, 레이어를 정의 합니다.
+    종이 이미지 리소스가 백그라운드에 그려집니다.
+    ```java
+    public class Paper extends Actor {
+
+    public Paper() {
+        attachComp(Position.class);
+        attachComp(Graphic.class)
+                .setLayer(BoardConfig.ELayer.BACK)
+                .setImage("paper.png")
+                .setSize(400, 520);
+      }
+  }
+  ```
+
+#### Comp
+- Actor에 부착되어 확장 기능을 담당하는 클래스 입니다.
+  - Comp::Graphic
+  - Actor에 부착되는 Graphic 컴포넌트 입니다.
+    리소스 및 리소스 사이즈와, 피봇을 정의하며
+    랜더링 될 순서를 판단하는 Layer 프로퍼티 또한 존재합니다.
+    ```java
+    public class Graphic extends Comp {
+  
+          private boolean isVisible = true;
+          private ImageIcon image;
+          .
+          .
+  
+          public Graphic setLayer(BoardConfig.ELayer layer){
+              Actor parent = getParent();
+              parent.setActorLayer( layer.getValue() );
+              return this;
+          }
+      
+          public Graphic setImage(String src){
+              image = new ImageIcon( Util.getResourcePath(src) );
+              width = image.getIconWidth();
+              height = image.getIconHeight();
+              pivotX = 0;
+              pivotY = 0;
+              return this;
+          }
+          .
+          .
+          .
+      }
+    ```
+    
+#### Rule
+- 프로세스를 진행 할 Rule 입니다.
+사용자는 run()메소드로 부터 실행 될 코드 덩어리를 구현하고 프로세스화 합니다.
+또한 RuleProperty 통하여 다음 프로세스를 조작 합니다.
+탬플릿 메소드 패턴을 통한 Prev, Close Logging을
+인터페이스로 손 쉽게 추가하거나 제거 할 수 있습니다.
+  - RConstructor
+  - Dice의 시작을 알리는 Rule입니다. run 실행시 아무것도 하지 않으나,
+    다음 프로세스 방향을 "RSpawnActors" Rule로 향하게 합니다.
+    ```java
+    public class RConstructor extends Rule implements RulRunLogger {
+    
+        @Override
+        protected RuleProperty ruleProperty() {
+            return new RuleProperty()
+                .setNextRule("RSpawnActors");
+        }
+    
+        @Override
+        public void run() {
+        }
+    
+        @Override
+        public void runPrevLog() {
+        }
+    
+        @Override
+        public void runCloseLog() {
+            sb.appendText(getCurFlow(), "1. 초기화 성공");
+        }
+    }
+    ```
+    
+  - RMoveFigure
+  - 다음 프로세스 연결을 "RUserActive"로 향하게 합니다.
+    run가동시 주사위 값 만큼 노드로 이동 하며,
+    rollback시 이전 상태 만큼 복구합니다.
+    결과 골체크에 성공했다면 다음 연결을 "REnd"로 전환 합니다.
+    ```java
+    public class RMoveFigure extends Rule 
+      implements RuleRollback, RulRunLogger, RuleRollbackLogger {
+
+      protected RuleProperty ruleProperty;
+      protected BoardConfig boardConfig;
+  
+      @Override
+      protected RuleProperty ruleProperty() {
+          boardConfig = (BoardConfig) bc;
+          ruleProperty = new RuleProperty()
+                  .setNextRule("RUserActive");
+          return ruleProperty;
+      }
+  
+      @Override
+      public void run() {
+          Node node = store.getMainNode();
+          FlowStatus flowStatus = getCurFlow();
+          Figure figure = store.getActiveFigure(flowStatus);
+          node.next(figure, flowStatus);
+          if ( node.isGoalCheck(figure, boardConfig.goal) ){
+              ruleProperty.setNextRule("REnd");
+          }
+  
+      }
+  
+      @Override
+      public void rollback() {
+          Node node = store.getMainNode();
+          FlowStatus flowStatus = getCurFlow();
+          FlowStatus prevFindStatus = getCalcFlow(-1);
+          Figure figure = store.getActiveFigure(flowStatus);
+          
+          node.prev(figure, flowStatus, prevFindStatus);
+          ruleProperty.setNextRule("RUserActive");
+      }
+    ```
+
+  - REnd
+  - "REnd"는 다음 체인 연결이 없으므로 프로세스가 종료 됩니다.
+    ```java
+    public class REnd extends Rule 
+      implements RuleRollback, RulRunLogger, RuleRollbackLogger {
+
+      protected BoardConfig boardConfig;
+  
+      @Override
+      protected RuleProperty ruleProperty() {
+          boardConfig = (BoardConfig)bc;
+          return new RuleProperty();
+      }
+  
+      @Override
+      public void run() {
+          FlowStatus fs = getCurFlow();
+          Victory victory = store.getFirstActor(BoardConfig.ELayer.FIGURE_FRONT, Victory.class);
+          victory.getPosition().setPosition(6, 4);
+          victory.visible(true);
+          victory.toText(fs.getActiveUserIndex(), boardConfig.goal, fs.getSequence());
+      }
+  
+      @Override
+      public void rollback() {
+          Victory victory = store.getFirstActor(BoardConfig.ELayer.FIGURE_FRONT, Victory.class);
+          victory.visible(false);
+      }
+    ```
+    
+#### Flow
+- 프로세스를 진행하는 클래스 입니다. 프로세스 진행시 시퀀스 커서가 증가합니다.
+시퀀스 커서 기반 가상 커서를 이전 이후로 변경하며, 상태를 롤백 할 수 있습니다.
+  - sequenceProgressFlow
+  - 해당 룰로 상태를 변경 하며, 시퀀스 프로세스를 증가 시킵니다.
+    진행될 프로세스는 이전의 상태값(FlowStatus)을 계승합니다.
+    wrapRunLogger를 통해 해당 룰의 프로세스를 진행 시키며,
+    현재 룰에 체이닝된 다음 룰을 실행하며 이하 반복합니다.
+    ```java
+    private void changeState(String ruleType){
+        Rule rule = getRule(ruleType);
+        boolean isSameCursor = (flowSequence == virtualCursor);
+        boolean isFlowSequenceProcessing = ( flowSequence == statusStore.size() - 1);
+        if( isSameCursor && isFlowSequenceProcessing){
+            sequenceProgressFlow(rule);
+        }
+    }
+        
+    private void sequenceProgressFlow(Rule rule){
+        ++flowSequence;
+        ++virtualCursor;
+
+        String ruleName = rule.getClass().getSimpleName();
+        FlowStatus flowStatus = new FlowStatus(flowSequence, ruleName);
+        FlowStatus prevStatus = hasPrevFlowStatus() ? getCalcFlow(-1) : null;
+        if(prevStatus != null)
+            flowStatus.duplicateWithoutUniqueFields(prevStatus);
+        statusStore.add( flowStatus );
+
+        RuleProperty property = rule.getRuleProperty();
+        OnSequenceFlowStatusHandle onSequenceFlowStatusHandle = flowConnector.getOnSequenceFlowStatusHandle();
+        if(onSequenceFlowStatusHandle != null){
+            onSequenceFlowStatusHandle.apply(rule, flowStatus);
+        }
+
+        wrapRunLogger(rule);
+        String next = property.getNextRule();
+        if(next != null && !next.isEmpty()){
+            changeState(next);
+        }
+    }
+    ```
+                      
+  - wrapRunLogger
+  - 템플릿 메소드 패턴을 통해 사용자는 logger 인터페이스를 통해
+    run 실행 전 후 로깅을 손 쉽게 추적할 수 있습니다.
+    ```java
+    private void wrapRunLogger(Rule rule){
+        if(rule instanceof RulRunLogger){
+            ((RulRunLogger)rule).runPrevLog();
+        }
+        rule.run();
+        if(rule instanceof RulRunLogger){
+            ((RulRunLogger)rule).runCloseLog();
+        }
+    }
+    ```
 
 ## 📊 공통 모듈 프로젝트 회고
 ### 결과
