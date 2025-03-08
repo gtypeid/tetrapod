@@ -145,6 +145,74 @@ b. [ 주사위 던짐 ] > b2. [ 더블 주사위 체크 ] > c. [ 사용자 이�
 
 ## 📝 공통 모듈 다이어그램
 ### 프로세스 플로우
+- 어플리케이션이 실행 될 때 jar로 받은 실행 인자들을 ArgsParser로 파싱하여 공통 모듈 설정을 정의합니다.
+- 클라이언트는 API /chain/{target} 호출을 통해 대상 서버의 REST API 엔드포인트들을 동적으로 조회하고,
+- 대상 서버는 RequestMappingHandlerMapping을 통해 반환 타입 및 메타 데이터를
+MappingInfoAPI 객체로서 클라이언트에게 반환합니다.
+- 반환된 메타데이터를 통해 클라이언트는 대상 서버의 API들을 확인할 수 있게 되며 이후 서버 체인 상태로 변환 합니다.
+
+```mermaid 
+flowchart LR
+A[SpringApplication] --> |ApplicationRunner|B[ArgsParser]
+B[ArgsParser] --> |SetCTX|C[Common Module]
+
+D[Client] --> |"api/chain/{target}"|E[Server]
+E[Server] --> |RequestMappingHandlerMapping| F[REST API,
+MappingInfoAPI]
+--> D[Client] --> G[Server Chain TRUE]
+```
+
+- 클라이언트는 이후 APIFilter를 통해 /api path제외 요청들을 RequestBodyWrapper
+ResponseBodyWrapper로서 바디 데이터 스트림을 감싸며
+- 이후 필터를 넘어간 요청은 ServerChainService를 통해 게이트로 진입
+- 게이트로 진입된 요청은 APIChecker를 통해 IdGenerator를 통해 ID를 부여받습니다.
+`(None, Sequence, SnowFlake 기존 아이디 계승, 값 증가, 스노우 플레이크 등)`
+- 해당 요청이 유효한 요청 및 데이터인지 ValidApi메소드 MappingInfoAPI 객체와 비교합니다.
+
+```mermaid 
+flowchart LR
+A[API Filter] --> B[RequestBodyWrapper, ResponseBodyWrapper] 
+--> C[ChainService,
+Gate] 
+--> D[APIChecker,
+IdGenerator]
+--> E[
+ValidApi,
+MappingInfoAPI]
+```
+
+- 적합하다면 API /chain/{target} 요청시 설정된 ChainContext를 통해 체인 어댑터들을 확인하고,
+`(HTTP Header Language 언어 비교 등)`
+- 로드 밸런싱 모듈에 진입 BalancingContext에 의거 설정된 밸런싱으로 분기합니다.
+`(Random, Roundrobin, Sharding 랜덤, 순차적, 키 값에 매칭 등)`
+- 이후 대상 서버의 API /status 를 요청 서버가 정상적인 상태가 아니라면 다시 게이트로 진입하고,
+- 유효한 서버라면 정상적으로 게이트를 나가게 됩니다.
+  
+```mermaid 
+flowchart LR
+E1[
+ValidApi,
+MappingInfoAPI]
+--> F[ChainContext,
+matchChainAdapter]
+--> G[LoadBalancer]
+--> H[StatusCheckerModule] 
+--> |api/status|I[TargetServer] 
+--> |Response OK|H --> |GateOut| J[GateOut]
+I[TargetServer]-->|ERROR|C1[ChainService,
+Gate]
+```
+
+- 스프링내의 인터셉터를 통해 공통 모듈을 의존하는 서버들은,
+- 요청 및 응답이 MetricStream으로 향하게 되고
+- FlowClient를 통해 Metric에 의한 요청 및 응답을 추적합니다.
+
+```mermaid 
+flowchart LR
+A[Gate] -->B[APICheckerInterceptor]
+--> C[MetricStream]
+--> D[FlowClient]
+```
 
 ## 📝 플로우 & 메트릭스 다이어그램
 ### 프로세스 플로우
